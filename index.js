@@ -1,7 +1,8 @@
 var express     = require('express'),
     bodyParser  = require('body-parser'),
     path        = require('path'),
-    mongoose    = require('mongoose');
+    mongoose    = require('mongoose'),
+    user        = require('./modules/comments');
     
 var app = express();
 
@@ -20,9 +21,17 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// mongoose connection
+mongoose.connect('mongodb://127.0.0.1/blogdb', {
+    useMongoClient: true
+})
+
+mongoose.Promise = global.Promise;
+
+
 // Routes
 app.get('/', function(req,res){
-    res.send("Hi");
+    res.redirect('campground');
 })
 
 app.listen( app.get('port') ,()=>{
