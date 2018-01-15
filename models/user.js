@@ -4,11 +4,12 @@ var mongoose    = require('mongoose'),
 
 var  userSchema = new mongoose.Schema({
         username : String,
-        image    : String,
+        imagename: String,
+        imagelink: String,
         description: String,
         comments : [
             {
-                type: mongoose.Types.Schema.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref : 'comments'    
             }
         ]

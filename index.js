@@ -2,7 +2,10 @@ var express     = require('express'),
     bodyParser  = require('body-parser'),
     path        = require('path'),
     mongoose    = require('mongoose'),
-    user        = require('./modules/comments');
+    user        = require('./models/comments'),
+    seedDB      = require('./seed');
+
+seedDB();
     
 var app = express();
 
