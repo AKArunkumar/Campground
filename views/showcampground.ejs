@@ -1,0 +1,73 @@
+<% include partials/header %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <img class="card-img-top" src="<%= userinf.imagelink %>" alt="Card image cap">
+                    <div class="card-body" style="width: 100%;">
+                        <h5 class="card-title" style="width: 100%;">
+                            <%= userinf.imagename %>
+                        </h5>
+                        <p class="card-text" style="width: 100%;">
+                            <%= userinf.description %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-top: 5px;margin-bottom: 5px;">
+                <a href="#">
+                    <button class="btn btn-success btn-sm">
+                        Edit
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-6 " style="margin-top: 5px;margin-bottom: 5px;">
+                <a class="float-right" href="#">
+                    <button class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-6" style="margin-top: 10px;">
+                <p class="col-md-12">
+                    <b>Comments</b>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <a class="float-right" href="/addcomment/<%= userinf._id %>">
+                    <button class="btn btn-success btn-sm" style="margin-top: 10px;">
+                        add comment
+                    </button>
+                </a>
+            </div>
+
+            <% if (comments.length < 1){ %>
+                <div class="col-md-12">
+                    <div class="card" style="margin-top: 5px;">
+                        <div class="card-body">
+                            No comment on this post
+                        </div>
+                    </div>
+                </div>
+                <% } else { %>
+                    <% comments.forEach(function(comment){ %>
+                        <div class="col-md-12" style="width: 100%;float: right;">
+                            <div class="card" style="margin-top: 5px;">
+                                <div class="card-body" style="padding-top:3px; padding-bottom: 0px;">
+                                    <div class="card-title">
+                                        <b>
+                                            <%= comment.user %>
+                                        </b>
+                                    </div>
+                                    <div class="card-title">
+                                        <%= comment.comment %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) } %>
+        </div>
+    </div>
+    </div>
+    </div>
+    <% include partials/footer %>

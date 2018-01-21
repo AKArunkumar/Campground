@@ -1,0 +1,27 @@
+<% include partials/header %>
+    <div class="container">
+        <form action="/campground/add" method="post">
+            <div class="form-group">
+                <label >Name</label>
+                <input type="text" class="form-control" name="userobj[username]" placeholder="arunkumar topagi    ">
+            </div>
+            <div class="form-group">
+                <label >Name Image</label>
+                <input type="text" class="form-control" name="userobj[imagename]" placeholder="hot girl">
+            </div>
+            <div class="form-group">
+                <label>Image Link</label>
+                <input type="text" class="form-control" name="userobj[imagelink]" placeholder="xxxxxxxxxxxxx.jpg">
+            </div>
+            <div class="form-group">
+                <label>Decribe here</label>
+                <textarea class="form-control" name="userobj[description]" rows="4" placeholder="descrption"></textarea>
+            </div>
+            <div class="from-group float-right">
+                <button type="submit" value="submit" class="btn btn-success">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+    <% include partials/footer %>

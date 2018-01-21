@@ -1,0 +1,25 @@
+<% include partials/header %>
+    <div class="container-fluid">
+        <div class="show">
+            <div class="row">
+                <% users.forEach(function(user){ %>
+                    <div class="col-md-4">
+                        <div class="card text-white">
+                            <img class="card-img" src="<%= user.imagelink %>" alt="Card image">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">
+                                    <%= user.imagename%>
+                                </h5>
+                                <a href="/campground/show/<%= user._id %>">
+                                    <button class="btn btn-outline-info ">More Info</button>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <% include partials/footer %>

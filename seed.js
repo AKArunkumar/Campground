@@ -46,11 +46,19 @@ function seedDB() {
                     .then(function (retUser) {
                         console.log("user data is added");
                         comments.create({
-                            comments:"This is nice blah blah",
-                            auther:"Unknow"   
+                            comment:"This is nice blah blah",
+                            user:"Unknow"   
                         })
                         .then(function(comment){
                             console.log("commet is added");
+                            retUser.comments.push(comment);
+                            retUser.save()
+                                .then(function(user){
+                                    console.log("user with comment is added")
+                                })
+                                .catch(function(err){
+                                    console.error(err);
+                                })
                         })
                         .catch(function(err){
                             console.error(err);

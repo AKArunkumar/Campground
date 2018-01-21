@@ -1,0 +1,12 @@
+<% include partials/header %>
+<div class="contain">
+    <form action="/addcomment/<%= id %>" method="post">
+        <input type="text" name="comments[user]">
+        <input type="text" name="comments[comment]">
+        <button type="submit">
+            comment
+        </button>
+    </form>
+    
+</div>
+<% include partials/footer %>
